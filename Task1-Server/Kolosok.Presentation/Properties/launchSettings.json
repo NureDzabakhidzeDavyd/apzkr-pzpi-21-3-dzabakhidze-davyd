@@ -1,0 +1,38 @@
+{
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5000"
+    },
+    "Kolosok.Presentation": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_HTTP_PORTS": "5000",
+        "ASPNETCORE_URLS=http": "//+:5000;"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5000"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_HTTPS_PORTS": "5001",
+        "ASPNETCORE_HTTP_PORTS": "5000",
+        "ASPNETCORE_URLS=http": "//+:5000;https://+:5001"
+      },
+      "publishAllPorts": true,
+      "useSSL": true
+    }
+  }
+}

@@ -1,0 +1,55 @@
+version: '3.4'
+
+name: kolosok
+
+services:
+  kolosok.api:
+    container_name: kolosok.api
+    image: ${DOCKER_REGISTRY-}kolosok.api
+    build:
+      context: .
+      dockerfile: Kolosok.Presentation/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:KolosokConnectionString=Host=localhost;Port=5432;Username=myuser;Password=mypassword;Database=Kolosok;"
+    depends_on:
+      - kolosok.db
+    ports:
+      - "8080:80"
+
+  kolosok.db:
+    container_name: kolosok.db
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=Kolosok
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    container_name: kolosok-pgadmin
+    image: dpage/pgadmin4:latest
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+volumes:
+  postgres_data:
+  pgadmin_data:
+  portainer_data:

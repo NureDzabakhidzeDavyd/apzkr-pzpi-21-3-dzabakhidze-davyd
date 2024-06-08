@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  kolosok.api:
+    container_name: kolosok.api
+    image: ${DOCKER_REGISTRY-}kolosokapi
+    
+  kolosok.db:
+    container_name: kolosok.db
+    image: postgres:latest
+
+  pgadmin:
+    container_name: kolosok-pgadmin
+    image: dpage/pgadmin4:latest
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce
