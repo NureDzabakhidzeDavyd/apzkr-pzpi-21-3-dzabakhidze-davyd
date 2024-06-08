@@ -1,0 +1,10 @@
+<mat-card class="confirm-delete-card">
+  <mat-card-title>Confirm Deletion</mat-card-title>
+  <mat-card-content>
+    <p>Are you sure you want to delete this item?</p>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+    <button mat-button (click)="cancelDelete()">Cancel</button>
+    <button mat-raised-button color="warn" (click)="confirmDelete()">Delete</button>
+  </mat-card-actions>
+</mat-card>

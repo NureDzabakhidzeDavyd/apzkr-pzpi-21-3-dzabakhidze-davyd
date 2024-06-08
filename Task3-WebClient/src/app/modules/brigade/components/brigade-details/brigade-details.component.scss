@@ -1,0 +1,37 @@
+.brigade-detail-container {
+  padding: 20px;
+}
+
+.brigade-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mat-card-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.mat-card-subtitle {
+  font-size: 16px;
+  color: gray;
+}
+
+.mat-expansion-panel-header {
+}
+
+.mat-expansion-panel-header .mat-panel-title {
+  font-weight: bold;
+}
+
+.no-rescuers, .no-records {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+.mat-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}

@@ -1,0 +1,12 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-nav-list a span.entry {
+  display: flex;
+  align-items: center;
+}
+
+mat-nav-list a span.entry mat-icon {
+  margin-right: 8px; /* Відступ між іконкою і текстом */
+}

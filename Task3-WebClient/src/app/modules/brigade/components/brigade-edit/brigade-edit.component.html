@@ -1,0 +1,37 @@
+<mat-card class="create-brigade-card">
+  <mat-card-title>{{ (brigadeId ? 'brigade.edit' : 'brigade.create') | translate }}</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="brigadeForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'brigade.name' | translate }}</mat-label>
+          <input matInput formControlName="name" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'brigade.description' | translate }}</mat-label>
+          <textarea matInput formControlName="description" required></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'brigade.brigadeRescuers' | translate }}</mat-label>
+          <mat-select formControlName="brigadeRescuers" multiple>
+            <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+              <mat-option *cdkVirtualFor="let rescuer of availableRescuers" [value]="rescuer.id">
+                {{ rescuer.contact.firstName }} {{ rescuer.contact.lastName }}
+              </mat-option>
+            </cdk-virtual-scroll-viewport>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" class="w-1/2" type="submit">{{( brigadeId ? 'common.update' : 'common.create') |  translate }}</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,58 @@
+<mat-toolbar style="padding: 0 0.25rem" color="primary">
+  <button (click)="toggleMenu()" mat-icon-button aria-label="Menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1>{{"menu.title" | translate}}</h1>
+  <div class="spacer"></div>
+  <button mat-icon-button (click)="switchLanguage()" aria-label="Switch Language">
+    <mat-icon>language</mat-icon>
+  </button>
+  <a routerLink="/profile" mat-icon-button aria-label="Profile icon">
+    <mat-icon>account_circle</mat-icon>
+  </a>
+</mat-toolbar>
+<mat-sidenav-container autosize class="h-full">
+  <mat-sidenav [ngClass]="!isCollapsed ? 'expanded' : ''" [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile">
+    <mat-nav-list>
+      <a routerLink="/home" mat-list-item>
+        <span class="entry">
+          <mat-icon>house</mat-icon>
+          <span *ngIf="!isCollapsed">{{"menu.home" | translate}}</span>
+        </span>
+      </a>
+      <a routerLink="/victims" mat-list-item>
+        <span class="entry">
+          <mat-icon>person</mat-icon>
+          <span *ngIf="!isCollapsed">{{"menu.victims" | translate}}</span>
+        </span>
+      </a>
+      <a routerLink="/brigades" mat-list-item>
+        <span class="entry">
+          <mat-icon>groups</mat-icon>
+          <span *ngIf="!isCollapsed">{{"menu.brigades" | translate}}</span>
+        </span>
+      </a>
+      <a routerLink="/brigade-rescuers" mat-list-item>
+        <span class="entry">
+          <mat-icon>group_add</mat-icon>
+          <span *ngIf="!isCollapsed">{{"menu.brigadeRescuers" | translate}}</span>
+        </span>
+      </a>
+      <a routerLink="/actions" mat-list-item>
+        <span class="entry">
+          <mat-icon>assignment</mat-icon>
+          <span *ngIf="!isCollapsed">{{"menu.actions" | translate}}</span>
+        </span>
+      </a>
+      <a routerLink="/users" mat-list-item>
+        <span class="entry">
+          <mat-icon>person</mat-icon>
+          <span *ngIf="!isCollapsed">{{"menu.users" | translate}}</span>
+        </span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

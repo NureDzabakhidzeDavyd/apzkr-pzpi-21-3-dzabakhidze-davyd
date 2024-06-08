@@ -1,0 +1,75 @@
+.brigade-rescuer-detail-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.brigade-rescuer-card {
+  width: 100%;
+  max-width: 800px;
+}
+
+.brigade-rescuer-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.brigade-rescuer-avatar {
+  background-color: #3f51b5;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+
+.qr-code-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.qr-code-image {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  height: 200px;
+}
+
+.action-card {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.mdc-list-item.mdc-list-item--with-one-line{
+  height: 100%;
+}
+
+.victim-details-card {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.detail-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.detail-icon {
+  margin-right: 8px;
+}
+
+.qr-code-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.qr-code-image {
+  margin-top: 10px;
+  max-width: 200px;
+  max-height: 200px;
+}

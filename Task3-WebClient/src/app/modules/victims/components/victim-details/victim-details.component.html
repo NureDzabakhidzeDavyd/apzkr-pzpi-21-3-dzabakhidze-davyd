@@ -1,0 +1,57 @@
+<mat-card *ngIf="victim" class="victim-details-card">
+  <mat-card-header>
+    <div mat-card-avatar class="victim-avatar"></div>
+    <mat-card-title>{{ victim.contact.firstName }} {{ victim.contact.lastName }}</mat-card-title>
+    <mat-card-subtitle>{{ victim.contact.email }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="detail-group">
+      <mat-icon class="detail-icon">location_on</mat-icon>
+      <div class="detail-content">
+        <h3>{{ 'victim.address' | translate }}</h3>
+        <p>{{ victim.contact.address }}</p>
+      </div>
+    </div>
+
+    <div class="detail-group">
+      <mat-icon class="detail-icon">phone</mat-icon>
+      <div class="detail-content">
+        <h3>{{ 'victim.phone' | translate }}</h3>
+        <p>{{ victim.contact.phone }}</p>
+      </div>
+    </div>
+
+    <div class="detail-group">
+      <mat-icon class="detail-icon">person</mat-icon>
+      <div class="detail-content">
+        <h3>{{ 'victim.brigadeRescuer' | translate }}</h3>
+        <p>{{ victim.brigadeRescuer.contact.firstName }} {{ victim.brigadeRescuer.contact.lastName }}</p>
+      </div>
+    </div>
+
+    <div class="detail-group">
+      <mat-icon class="detail-icon">history</mat-icon>
+      <div class="detail-content">
+        <h3>{{ 'victim.actions' | translate }}</h3>
+        <ul>
+          <li *ngFor="let action of victim.actions">{{ action.name }} - {{ action.actionTime | date:'short' }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qr-code-section">
+      <button mat-raised-button color="primary" (click)="generateQRCode(victim.id)">
+        <mat-icon>qr_code</mat-icon> Generate QR Code
+      </button>
+      <img *ngIf="qrCodeUrl" [src]="qrCodeUrl" alt="QR Code" class="qr-code-image mx-auto" />
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="goBack()">{{ 'victim.back' | translate }}</button>
+  </mat-card-actions>
+</mat-card>
+
+<div *ngIf="!victim" class="loading">
+  <mat-spinner></mat-spinner>
+  <p>{{ 'victim.loading' | translate }}</p>
+</div>

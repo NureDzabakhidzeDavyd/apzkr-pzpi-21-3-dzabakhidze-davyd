@@ -1,0 +1,59 @@
+<div *ngIf="brigade" class="brigade-detail-container">
+  <mat-card class="brigade-card">
+    <mat-card-header>
+      <mat-card-title>{{ brigade.name }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ brigade.description }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+          <mat-list-item>
+            <strong>{{ 'brigade.brigadeSize' | translate }}:</strong>
+            <span>{{ brigade.brigadeSize }}</span>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ 'brigade.brigadeRescuers' | translate }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div *ngIf="brigade.brigadeRescuers && brigade.brigadeRescuers.length">
+          <mat-list class="grid grid-cols-1 gap-4">
+            <mat-list-item *ngFor="let rescuer of brigade.brigadeRescuers">
+              <div class="flex flex-col md:flex-row md:items-center p-4 border border-gray-300 rounded-md">
+                <div class="md:w-1/3">
+                  <strong >{{ 'contact.firstName' | translate }}: </strong>
+                  <span >{{ rescuer.contact.firstName }} {{ rescuer.contact.lastName }}</span>
+                </div>
+                <div class="md:w-1/3 mt-4 md:mt-0">
+                  <strong >{{ 'brigadeRescuer.position' | translate }}: </strong>
+                  <span >{{ rescuer.position }}</span>
+                </div>
+                <div class="md:w-1/3 mt-4 md:mt-0">
+                  <strong >{{ 'brigadeRescuer.specialization' | translate }}: </strong>
+                  <span >{{ rescuer.specialization }}</span>
+                </div>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <div *ngIf="!brigade.brigadeRescuers || brigade.brigadeRescuers.length === 0" class="no-rescuers">
+          <p>{{ 'brigade.noRescuers' | translate }}</p>
+        </div>
+      </mat-expansion-panel>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div *ngIf="!brigade" class="loading">
+  <mat-spinner></mat-spinner>
+  <p>{{ 'loading' | translate }}</p>
+</div>

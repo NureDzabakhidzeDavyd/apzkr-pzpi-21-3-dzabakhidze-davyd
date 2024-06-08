@@ -1,0 +1,85 @@
+<div *ngIf="brigadeRescuer" class="brigade-rescuer-detail-container">
+  <mat-card class="brigade-rescuer-card">
+    <mat-card-header class="brigade-rescuer-card-header">
+      <div mat-card-avatar class="brigade-rescuer-avatar"></div>
+      <mat-card-title>{{ brigadeRescuer.contact.firstName }} {{ brigadeRescuer.contact.lastName }}</mat-card-title>
+      <mat-card-subtitle>{{ brigadeRescuer.position }} - {{ brigadeRescuer.specialization }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>contact_mail</mat-icon> {{ 'brigadeRescuer.contactInformation' | translate }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+          <mat-list-item>
+            <strong>{{ 'contact.email' | translate }}:</strong>
+            <span>{{ brigadeRescuer.contact.email }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <strong>{{ 'contact.phone' | translate }}:</strong>
+            <span>{{ brigadeRescuer.contact.phone }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <strong>{{ 'contact.address' | translate }}:</strong>
+            <span>{{ brigadeRescuer.contact.address }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <strong>{{ 'contact.birth' | translate }}:</strong>
+            <span>{{ brigadeRescuer.contact.dateOfBirth | date }}</span>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>group</mat-icon> {{ 'brigadeRescuer.brigadeDetails' | translate }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+          <mat-list-item>
+            <strong>{{ 'brigade.name' | translate }}:</strong>
+            <span>{{ brigadeRescuer.brigade.name }}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <strong>{{ 'brigade.description' | translate }}:</strong>
+            <span>{{ brigadeRescuer.brigade.description }}</span>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>work</mat-icon> {{ 'brigadeRescuer.actions' | translate }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+          <mat-list-item class="h-full" *ngFor="let action of brigadeRescuer.actions">
+            <mat-card class="action-card">
+              <mat-card-header>
+                <mat-card-title>{{ action.name }}</mat-card-title>
+                <mat-card-subtitle>{{ action.actionType }} - {{ action.actionPlace }}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <p>{{ action.description }}</p>
+                <p><strong>{{ 'Action Time' | translate }}:</strong> {{ action.actionTime | date:'short' }}</p>
+                <p><strong>{{ 'Victim' | translate }}:</strong> {{ action.victim.contact.firstName }} {{ action.victim.contact.lastName }}</p>
+              </mat-card-content>
+            </mat-card>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <div class="qr-code-section">
+        <button mat-raised-button color="primary" (click)="generateQRCode(brigadeRescuer.id)">
+          <mat-icon>qr_code</mat-icon> Generate QR Code
+        </button>
+        <img *ngIf="qrCodeUrl" [src]="qrCodeUrl" alt="QR Code" class="qr-code-image" />
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

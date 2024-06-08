@@ -1,0 +1,66 @@
+<div class="container mx-auto p-6">
+  <div class="max-w-2xl mx-auto bg-neutral-700 rounded-lg shadow-md overflow-hidden">
+    <div class="bg-gradient-to-r from-gray-500 to-purple-500 p-4">
+      <h1 class="text-4xl font-bold text-white mb-4">Register</h1>
+    </div>
+    <div class="p-6">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="form-group">
+            <mat-form-field class="full-width">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="firstName" required>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="full-width">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastName" required>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="full-width">
+              <mat-label>Middle Name</mat-label>
+              <input matInput formControlName="middleName" required>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" required>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="full-width">
+              <mat-label>Phone</mat-label>
+              <input matInput formControlName="phone" required>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="full-width">
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="address" required>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="full-width">
+              <mat-label>Date of Birth</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <button mat-raised-button color="primary" type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

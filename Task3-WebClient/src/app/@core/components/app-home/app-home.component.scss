@@ -1,0 +1,28 @@
+/* app-home.component.scss */
+
+:host {
+  display: block;
+}
+
+/* Animation Styles */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeInOut {
+  animation: fadeInOut 1.5s ease-in-out;
+}
+
+.card {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,70 @@
+<mat-card class="create-victim-card">
+  <mat-card-header>
+    <mat-card-title>{{ (victimId ? 'victim.edit' : 'victim.create') | translate }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="victimForm" (ngSubmit)="onSubmit()">
+      <div formGroupName="contact" class="form-container">
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>{{ 'contact.firstName' | translate }}</mat-label>
+            <input matInput formControlName="firstName" required>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>{{ 'contact.lastName' | translate }}</mat-label>
+            <input matInput formControlName="lastName" required>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>{{ 'contact.email' | translate }}</mat-label>
+            <input matInput formControlName="email" required>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>{{ 'contact.phone' | translate }}</mat-label>
+            <input matInput formControlName="phone" required>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>{{ 'contact.middleName' | translate }}</mat-label>
+            <input matInput formControlName="middleName" required>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>{{ 'contact.address' | translate }}</mat-label>
+            <input matInput formControlName="address" required>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>{{ 'contact.birth' | translate }}</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="full-width">
+          <mat-label>{{ 'victim.brigadeRescuer' | translate }}</mat-label>
+          <mat-select formControlName="brigadeRescuerId" required>
+            <mat-option *ngFor="let rescuer of availableRescuers" [value]="rescuer.id">
+              {{ rescuer.contact.firstName }} {{ rescuer.contact.lastName }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit">{{ (victimId ? 'common.update' : 'common.create') | translate }}</button>
+
+        <!--        <button mat-raised-button color="primary" type="submit">{{ 'common.create' | translate }}</button>-->
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

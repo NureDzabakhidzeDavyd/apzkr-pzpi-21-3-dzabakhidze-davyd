@@ -1,0 +1,115 @@
+{
+  "loading": "Loading...",
+  "menu": {
+    "title": "Kolosok",
+    "greetings": "Welcome to Kolosok",
+    "information": "Managing actions and care for rescue operations",
+    "actions": "Actions",
+    "actions.description": "Track and manage all rescue operations and actions performed by the team.",
+    "brigades": "Brigades",
+    "brigades.description": "Organize and manage different brigades, including their members and resources.",
+    "brigadeRescuers": "Brigade Rescuers",
+    "brigadeRescuers.description": "Detailed information about each rescuer, including their skills and roles.",
+    "contacts": "Contacts",
+    "contacts.description": "Maintain an up-to-date contact list for all members, including personal and login details.",
+    "diagnoses": "Diagnoses",
+    "diagnoses.description": "Record and manage diagnoses for victims, ensuring accurate medical history.",
+    "victims": "Victims",
+    "victims.description": "Track and manage all details related to victims, including their medical care.",
+    "home": "Menu",
+    "users": "Users"
+  },
+  "contact": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "middleName": "Middle Name",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "birth": "Birth"
+  },
+  "brigadeRescuer": {
+    "create": "Create Rescuer",
+    "edit": "Update Rescuer",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "middleName": "Middle Name",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "birth": "Birth",
+    "skills": "Skills",
+    "roles": "Roles",
+    "position": "Position",
+    "brigade": "Brigade",
+    "specialization": "Specialization",
+    "contactInformation": "Contact Information",
+    "brigadeDetails": "Brigade Details",
+    "actions": "Actions",
+    "victimsAssisted": "Victims Assisted"
+  },
+  "action": {
+    "create": "Create Action",
+    "edit": "Update Action",
+    "name": "Name",
+    "description": "Description",
+    "actionTime": "Action Time",
+    "actionType": "Action Type",
+    "actionPlace": "Action Place",
+    "brigadeRescuers": "Rescuers",
+    "victims": "Victims"
+  },
+  "brigade": {
+    "create": "Create Brigade",
+    "edit": "Update Brigade",
+    "name": "Name",
+    "description": "Description",
+    "brigadeSize": "Brigade Size",
+    "brigadeRescuers": "Rescuers",
+    "noRescuers": "No rescuers"
+  },
+  "common": {
+    "create": "Create",
+    "update": "Update",
+    "actions": "Actions",
+    "back": "Back"
+  },
+  "tooltip": {
+    "viewDetails": "View details",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "login": {
+    "email": "Enter your email",
+    "password": "Enter your password",
+    "submit": "Login",
+    "register": "Don't have an account? Register",
+    "errors": {
+      "required": "You must enter a value",
+      "email": "Not a valid email"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "address": "Address",
+    "phone": "Phone",
+    "dateOfBirth": "Date of Birth",
+    "editProfile": "Edit Profile",
+    "logout": "Logout",
+    "backup": "Backup"
+  },
+  "victim": {
+    "create": "Create Victim",
+    "edit": "Update Victim",
+    "details": "Details",
+    "address": "Address",
+    "phone": "Phone",
+    "brigadeRescuer": "Rescuer",
+    "actions": "Actions",
+    "back": "Back",
+    "loading": "Loading..."
+  }
+}

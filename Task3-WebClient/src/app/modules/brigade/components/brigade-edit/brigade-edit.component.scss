@@ -1,0 +1,29 @@
+.create-brigade-card {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+mat-card-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.viewport {
+  height: 200px; // Adjust height as needed
+  border: 1px solid #ccc;
+}
+
+mat-form-field {
+  width: 100%;
+}

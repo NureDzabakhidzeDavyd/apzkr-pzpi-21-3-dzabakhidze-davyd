@@ -1,0 +1,23 @@
+<div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
+    <mat-form-field>
+      <mat-label>{{ 'login.email' | translate }}</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="loginForm.get('email')?.invalid">{{ getErrorMessage('email') }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="password-field">
+      <mat-label>{{ 'login.password' | translate }}</mat-label>
+      <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" aria-label="Hide password" [attr.aria-pressed]="hide">
+        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" class="submit-btn">{{ 'login.submit' | translate }}</button>
+
+    <div class="register-link">
+      <a routerLink="/auth/register">{{ 'login.register' | translate }}</a>
+    </div>
+  </form>
+</div>

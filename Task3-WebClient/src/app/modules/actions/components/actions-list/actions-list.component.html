@@ -1,0 +1,46 @@
+<div class="mat-elevation-z8 brigade-table-container">
+  <button mat-raised-button color="primary" class="create-button" (click)="createNew()">
+    {{ 'action.create' | translate }}
+  </button>
+
+  <table mat-table [dataSource]="actions" class="brigade-table mat-elevation-z8">
+    <!-- Define columns -->
+    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef>{{ 'action.' + column | translate }}</th>
+      <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>{{'common.actions' | translate}}</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button matTooltip="{{'tooltip.viewDetails' | translate}}" (click)="openDetails(element.id)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="{{'tooltip.edit' | translate}}" (click)="openEdit(element.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="{{'tooltip.delete' | translate}}" (click)="deleteConfirmation(element.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Table rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns.concat('actions')"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns.concat('actions');"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell no-data-cell" [attr.colspan]="displayedColumns.length + 1">
+        No data matching the filter.
+      </td>
+    </tr>
+  </table>
+  <mat-paginator
+    [length]="totalRecords"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page)="onPageChange($event.pageIndex + 1)"
+    class="paginator"
+  ></mat-paginator>
+</div>
+

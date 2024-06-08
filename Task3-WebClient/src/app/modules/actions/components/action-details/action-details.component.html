@@ -1,0 +1,56 @@
+<mat-card *ngIf="action" class="action-details-card">
+  <mat-card-header>
+    <div mat-card-avatar class="action-avatar"></div>
+    <mat-card-title>{{ action.name }}</mat-card-title>
+    <mat-card-subtitle>{{ action.actionType | translate }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="detail-group">
+      <mat-icon class="detail-icon">description</mat-icon>
+      <div class="detail-content">
+        <h3>{{ 'action.description' | translate }}</h3>
+        <p>{{ action.description }}</p>
+      </div>
+    </div>
+
+    <div class="detail-group">
+      <mat-icon class="detail-icon">schedule</mat-icon>
+      <div class="detail-content">
+        <h3>{{ 'action.actionTime' | translate }}</h3>
+        <p>{{ action.actionTime | date:'full' }}</p>
+      </div>
+    </div>
+
+    <div class="detail-group">
+      <mat-icon class="detail-icon">location_on</mat-icon>
+      <div class="detail-content">
+        <h3>{{ 'action.actionPlace' | translate }}</h3>
+        <p>{{ action.actionPlace }}</p>
+      </div>
+    </div>
+
+    <div class="detail-group">
+      <mat-icon class="detail-icon">person</mat-icon>
+      <div class="detail-content">
+        <h3>{{ 'action.brigadeRescuers' | translate }}</h3>
+        <p>{{ action.brigadeRescuer.contact.firstName }} {{ action.brigadeRescuer.contact.lastName }}</p>
+      </div>
+    </div>
+
+    <div class="detail-group">
+      <mat-icon class="detail-icon">healing</mat-icon>
+      <div class="detail-content">
+        <h3>{{ 'action.victims' | translate }}</h3>
+        <p>{{ action.victim.contact.firstName }} {{ action.victim.contact.lastName }}</p>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="goBack()">{{ 'common.back' | translate }}</button>
+  </mat-card-actions>
+</mat-card>
+
+<div *ngIf="!action" class="loading">
+  <mat-spinner></mat-spinner>
+  <p>{{ 'loading' | translate }}</p>
+</div>
