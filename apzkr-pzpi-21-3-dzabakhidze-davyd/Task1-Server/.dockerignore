@@ -12,7 +12,7 @@
 **/*.dbmdl
 **/*.jfm
 **/azds.yaml
-**/bin
+Kolosok.Domain/bin
 **/charts
 **/docker-compose*
 **/Dockerfile*
