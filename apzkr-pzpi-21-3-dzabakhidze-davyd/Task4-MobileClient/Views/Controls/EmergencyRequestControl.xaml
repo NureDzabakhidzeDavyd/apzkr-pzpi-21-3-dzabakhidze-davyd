@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="CareWatch.Mobile.Views.Controls.EmergencyRequestControl">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Margin="20,20,20,0">
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Type" />
+                    <Entry x:Name="entryType" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Location" />
+                    <Entry x:Name="entryLocation" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Status" />
+                    <Entry x:Name="entryStatus" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!--<Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Assigned Doctor" />
+                    --><!-- Assuming you have a Picker or some other control for selecting the assigned doctor --><!--
+                    <Picker x:Name="pickerAssignedDoctor">
+                        --><!-- Populate with the list of available doctors --><!--
+                    </Picker>
+                </HorizontalStackLayout>
+            </Frame>-->
+
+            <Button Text="Save" Clicked="btnSave_Clicked" />
+
+            <Button Text="Cancel" Clicked="btnCancel_Clicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentView>

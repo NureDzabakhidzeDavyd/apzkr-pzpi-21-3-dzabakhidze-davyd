@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CareWatch.Mobile.Views.DoctorDetailsPage"
+             Title="DoctorDetailsPage">
+
+    <VerticalStackLayout Margin="20" Spacing="10">
+        <Label Text="Doctor Details" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <StackLayout Spacing="5">
+            <Label Text="Name" FontSize="Medium" FontAttributes="Bold" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Contact.FirstName}" FontAttributes="Bold" />
+                <Label Text="{Binding Contact.LastName}" />
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Spacing="5">
+            <Label Text="Email" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{Binding Contact.Email}" />
+        </StackLayout>
+
+        <StackLayout Spacing="5">
+            <Label Text="Address" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{Binding Contact.Address}" />
+        </StackLayout>
+
+        <StackLayout Spacing="5">
+            <Label Text="Phone" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{Binding Contact.Phone}" />
+        </StackLayout>
+
+        <Button Text="Back" Clicked="BackButton_Clicked" HorizontalOptions="Start" BackgroundColor="Transparent" TextColor="Blue" />
+    </VerticalStackLayout>
+</ContentPage>

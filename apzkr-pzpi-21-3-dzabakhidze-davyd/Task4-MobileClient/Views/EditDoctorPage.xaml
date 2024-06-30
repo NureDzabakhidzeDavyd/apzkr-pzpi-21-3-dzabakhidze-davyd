@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CareWatch.Mobile.Views.EditDoctorPage"
+             xmlns:controls="clr-namespace:CareWatch.Mobile.Views.Controls"
+             Title="EditDoctorPage">
+    <controls:DoctorControl x:Name="doctorCtrl"
+                         SaveButtonClicked="SaveButton_Clicked"
+                         CancelButtonClicked="CancelButton_Clicked">
+    </controls:DoctorControl>
+</ContentPage>

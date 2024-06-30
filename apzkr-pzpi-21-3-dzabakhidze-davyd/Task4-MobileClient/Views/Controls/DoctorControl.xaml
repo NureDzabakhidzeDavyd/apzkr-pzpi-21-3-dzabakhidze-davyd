@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="CareWatch.Mobile.Views.Controls.DoctorControl">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Margin="20,20,20,0">
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="First Name" />
+                    <Entry x:Name="entryFirstName" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Last Name" />
+                    <Entry x:Name="entryLastName" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Middle Name" />
+                    <Entry x:Name="entryMiddleName" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Email" />
+                    <Entry x:Name="entryEmail">
+                        <Entry.Behaviors>
+                            <toolkit:MultiValidationBehavior x:Name="emailValidator" 
+                                                         Flags="ValidateOnAttaching,ValidateOnValueChanged">
+                                <toolkit:EmailValidationBehavior
+                                Flags="ValidateOnAttaching,ValidateOnValueChanged" 
+                                toolkit:MultiValidationBehavior.Error="Invalid email format" />
+
+                                <toolkit:TextValidationBehavior
+                                MinimumLength="1"
+                                Flags="ValidateOnAttaching,ValidateOnValueChanged" 
+                                toolkit:MultiValidationBehavior.Error="Email is required" />
+                            </toolkit:MultiValidationBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Phone Number" />
+                    <Entry x:Name="entryPhoneNumber" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Address" />
+                    <Entry x:Name="entryAddress" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Date of Birth" />
+                    <DatePicker x:Name="datePickerDateOfBirth" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Gender" />
+                    <Picker x:Name="pickerGender">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Male</x:String>
+                                <x:String>Female</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Button Text="Save" Clicked="btnSave_Clicked" />
+
+            <Button Text="Cancel" Clicked="btnCancel_Clicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentView>

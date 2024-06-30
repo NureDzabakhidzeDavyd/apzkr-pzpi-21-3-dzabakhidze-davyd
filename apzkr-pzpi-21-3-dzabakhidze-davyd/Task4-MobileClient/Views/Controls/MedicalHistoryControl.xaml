@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="CareWatch.Mobile.Views.Controls.MedicalHistoryControl">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Margin="20,20,20,0">
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Disease" />
+                    <Entry x:Name="entryDisease" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Treatment" />
+                    <Entry x:Name="entryTreatment" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!-- Picker for Doctors -->
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Select Doctor" />
+                    <Picker x:Name="pickerDoctors" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!-- Picker for Patients -->
+            <Frame>
+                <HorizontalStackLayout>
+                    <Label VerticalOptions="Center" Text="Select Patient" />
+                    <Picker x:Name="pickerPatients" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Button Text="Save" Clicked="btnSave_Clicked" />
+
+            <Button Text="Cancel" Clicked="btnCancel_Clicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentView>

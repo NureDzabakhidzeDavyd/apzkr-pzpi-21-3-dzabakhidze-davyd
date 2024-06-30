@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CareWatch.Mobile.Views.MedicalHistoriesPage"
+             Title="Medical Histories">
+
+    <StackLayout>
+        <!--<SearchBar x:Name="searchBar" Placeholder="Search Medical Histories" TextChanged="searchBar_SearchButtonPressed"/>-->
+        <ListView x:Name="medicalHistoriesList"
+                  ItemSelected="medicalHistoriesList_ItemSelected"
+                  ItemTapped="medicalHistoriesList_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Disease}" Detail="{Binding Treatment}">
+                        <TextCell.ContextActions>
+                            <MenuItem CommandParameter="{Binding .}" Text="Edit" Clicked="EditMedicalHistoryButton_Clicked"></MenuItem>
+                            <MenuItem CommandParameter="{Binding .}" Text="Delete" Clicked="DeleteMedicalHistoryButton_Clicked"></MenuItem>
+                        </TextCell.ContextActions>
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Add Medical History"
+                VerticalOptions="End" HorizontalOptions="End"
+                Clicked="AddMedicalHistoryButton_Clicked"
+                Margin="0,0,20,20" />
+    </StackLayout>
+</ContentPage>

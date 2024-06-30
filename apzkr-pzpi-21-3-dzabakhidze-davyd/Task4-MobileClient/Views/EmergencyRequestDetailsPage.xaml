@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CareWatch.Mobile.Views.EmergencyRequestDetailsPage"
+             Title="EmergencyRequestDetailsPage">
+
+    <VerticalStackLayout Margin="20" Spacing="10">
+        <Label Text="Emergency Request Details" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <StackLayout Spacing="5">
+            <Label Text="Type" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{Binding Type}" />
+        </StackLayout>
+
+        <StackLayout Spacing="5">
+            <Label Text="Location" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{Binding Location}" />
+        </StackLayout>
+
+        <StackLayout Spacing="5">
+            <Label Text="Status" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{Binding Status}" />
+        </StackLayout>
+
+        <StackLayout Spacing="5">
+            <Label Text="Assigned Doctor" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{Binding AcceptedDoctor.Contact.FirstName}" />
+            <Label Text="{Binding AcceptedDoctor.Contact.LastName}" />
+        </StackLayout>
+
+        <StackLayout Spacing="5">
+            <Label Text="Date Created" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{Binding DateCreated, StringFormat='{0:MMMM dd, yyyy}'}" />
+        </StackLayout>
+
+        <Button Text="Back" Clicked="BackButton_Clicked" HorizontalOptions="Start" BackgroundColor="Transparent" TextColor="Blue" />
+    </VerticalStackLayout>
+</ContentPage>
